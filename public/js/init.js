@@ -55,7 +55,13 @@ $(document).ready(function() {
       getLevelsForConnection: function(connectionID, callback)
       {
         socket.emit("level get all", connectionID, callback);
+      },
+      deleteLevel: function(levelID, callback)
+      {
+       socket.emit("level delete", levelID, callback); 
       }
+      
+      
      
     };
     
@@ -338,11 +344,11 @@ $(document).ready(function() {
                 rx:   $dialog.find('.form input[name="rx"]').val(),
                 tx:   $dialog.find('.form input[name="tx"]').val(),
                 itime:   $dialog.find('.form input[name="itime"]').val(),
-                location_from_to:   $dialog.find('.form input[name="location_from_to"]').val()
+                location_from_to:   $dialog.find('.form input[name="location_from_to"]:checked').val()
                 
                }
          
-               
+               console.log(level);
                dataService.addLevel(level, function(error, result)
                  {
                    if(error) showErrorDialog(error);

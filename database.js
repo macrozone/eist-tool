@@ -47,10 +47,15 @@ module.exports.addLevel = function(level, callback)
   ];
   
   var level = sanitize(level, fields);
-  console.log(level);
+  
   connection.query("INSERT INTO signal_level SET ?", level, callback);
 }
 
+
+module.exports.deleteLevel = function(level, callback)
+{
+ connection.query("DELETE FROM signal_level where id=?", level.id, callback); 
+}
 module.exports.addLocation = function(location, callback)
 {
   var fields = 

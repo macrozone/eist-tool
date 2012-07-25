@@ -88,12 +88,13 @@ function ChartWindowService(socket, dataService)
       
       // make dialog window
       
+      // little workaround
       $window.on("dialogresize", function()
         {
-          
           $(window).trigger("resize");
         });
-      $window.dialog({position: ["right", "top"],width:600, title: "Bündel: "+connectionID, buttons:{"Schliessen": function() {
+      $window.dialog({canMinimize:true,
+				canMaximize:true,position: ["right", "top"],width:600, title: "Bündel: "+connectionID, buttons:{"Schliessen": function() {
           $( this ).dialog( "close" );
       }}});
       
@@ -134,11 +135,16 @@ function ChartWindowService(socket, dataService)
               point: {
                 events: {
                   click: function() {
+                    var level = this.config[2];
                     var options = {title: this.series.name, buttons:{"Löschen": function()
                       {
-                        
+                       
+                       dataService.deleteLevel(level, function(error, result)
+                         {
+                           $dialog.dialog("close");
+                         });
                     }}};
-                    tools.showMessage('<b>'+ this.series.name +'</b><br/>'+
+                    var $dialog = tools.showMessage('<b>'+ this.series.name +'</b><br/>'+
                       tools.formatTime(this.x) +': '+ "<strong>"+this.y+'db</strong>', options);
                     
                   }
@@ -212,13 +218,13 @@ function ChartWindowService(socket, dataService)
           {
             if(item.location_from_to == "FROM")
             {
-              dataFromTX.push([new Date(item.itime).getTime(), item.tx]);
-              dataFromRX.push([new Date(item.itime).getTime(), item.rx]);
+              dataFromTX.push([new Date(item.itime).getTime(), item.tx, item]);
+              dataFromRX.push([new Date(item.itime).getTime(), item.rx, item]);
             }
             else
             {
-              dataToTX.push([new Date(item.itime).getTime(), item.tx]);
-              dataToRX.push([new Date(item.itime).getTime(), item.rx]);
+              dataToTX.push([new Date(item.itime).getTime(), item.tx, item]);
+              dataToRX.push([new Date(item.itime).getTime(), item.rx, item]);
             }
           });
         dataFromTX.sort(compareByDate);

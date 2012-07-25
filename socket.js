@@ -42,6 +42,14 @@ module.exports = function(server, database)
       
       socket.on("level get all", database.getLevelsForConnection);
       
+      socket.on("level delete", function(level, callback)
+        {
+          
+          database.deleteLevel(level, callback);
+           // broadcast to all
+          io.sockets.emit("connection changed", level.connection_fk);
+        });
+      
       socket.on("location update", function(data, callback)
         {
           database.updateLocation(data.locationID, data.fields, callback); 

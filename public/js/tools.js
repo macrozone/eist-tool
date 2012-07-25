@@ -31,7 +31,7 @@ var tools={
         $(this).dialog( "destroy" );
         $(this).remove(); 
       });
-    
+    return $dialog;
   }
   
   
