@@ -1,0 +1,164 @@
+!!!5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/ui-lightness/jquery-ui-1.8.21.custom.css')
+  
+    link(rel='stylesheet', href='/js/dataTables/css/jquery.dataTables.css')
+    link(rel='stylesheet', href='/css/style.css')
+    script(type="text/javascript", src="/js/jquery-1.7.2.min.js")  
+    script(type="text/javascript", src="/js/jquery-ui-1.8.21.custom.min.js")  
+    script(type="text/javascript", src="/js/jquery-ui-timepicker-addon.js")
+    script(type="text/javascript", src="/js/dataTables/js/jquery.dataTables.min.js")
+    script(type="text/javascript", src="/js/dataTables/js/plugins/dataTableExt.fnStandingRedraw.js")
+    
+    script(type="text/javascript", src="/js/dataTables/js/plugins/dataTableExt.fnReloadAjax.js")
+    script(type="text/javascript", src="/socket.io/socket.io.js")
+    script(type="text/javascript", src="/js/highcharts.js")
+    script(type="text/javascript", src="/js/tools.js")
+
+    script(type="text/javascript", src="/js/ChartWindowService.js")
+   
+    script(type="text/javascript", src="/js/init.js")
+
+    
+  body
+   
+    div(id="leftColumn", class="column")
+
+      div(id="tabs")
+        div(id="actions")
+         
+          a(class="refresh") 
+            &nbsp;
+          a(class="print") Drucken & Export
+          a(class="newLocation") + Standort
+          a(class="newConnection") + Verbindung
+       
+          
+        ul
+          li
+            a(href="#tab-connections") Verbindungen
+          li
+            a(href="#tab-locations") Standorte
+          
+            
+        div(id="status")
+         
+            span(id="numberOfClients") 
+            span &nbsp;Benutzer online
+        div(class="clear")
+       
+        div(id="tab-connections")
+          table(id="connectionTable")
+        div(id="tab-locations")
+          table(id="locationTable")  
+    
+    div(id="rightColumn", class="column")
+      div(id="order", class="ui-widget")
+        div(class="ui-widget-header") 
+          span Auftrag
+            div(class="buttons")
+              a(class="printButton") Drucken
+              a(class="closeButton") Schliessen
+          div(class="clear")
+        div(class="ui-widget-content") 
+       
+            
+        
+        
+    
+    div(class="clear")
+    div(id="printDialog")
+      table
+        tr  
+          th Alle Artikel
+          td
+             a(class="button printAll") Drucken
+          td
+             a(class="button exportAll") Export
+        tr  
+          th Vorhandene Artikel
+          td
+             a(class="button printStock") Drucken
+          td
+             a(class="button exportStock") Export
+             
+        tr  
+          th Ausgeliehene Artikel
+          td
+             a(class="button printAway") Drucken
+          td
+             a(class="button exportAway") Export
+             
+        
+      
+      
+      
+   
+    div(id="addNewLocationDialog")
+       form(class="form")
+        table
+          tr
+            td Name: 
+            td
+              input(type="text", name="name", placeholder="Name")
+          tr 
+            td Kürzel:
+            td
+              input(type="text", name="name_short", placeholder="Kürzel")
+          
+         
+           
+    div(id="addNewConnectionDialog")
+      form(class="form")
+        table
+          tr
+            td Bündel-Nr:: 
+            td
+              input(type="text", name="id", placeholder="Bündel-Nr")
+          tr 
+            td Von:
+            td
+              select(name="from")
+          tr
+            td Nach:
+            td
+              select(name="to")
+            
+              
+     div(id="addNewLevelDialog")
+      form(class="form")
+        table
+          tr
+            th Bündel-Nr:: 
+            td(class="connectionID")
+              
+          tr 
+           th Gemeldet von:
+           td
+            input(type="radio",name="location_from_to",value="FROM")
+            label(class="from")
+            br
+            input(type="radio",name="location_from_to",value="TO")
+            label(class="to")
+            
+          tr
+            th Sendepegel (TX):
+            td 
+              input(type="text", name="tx", placeholder="TX")
+          tr
+            th Empfangspegel (RX):
+            td 
+              input(type="text", name="rx", placeholder="RX")
+          tr
+            th Zeit:
+            td 
+              input(type="text", name="itime", placeholder="Datum & Zeit", class="datetime")
+            
+            
+           
+         
+    div(id="errorDialog")
+      An error occured:
+      p(class="error")

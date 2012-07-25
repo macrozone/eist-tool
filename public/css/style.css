@@ -1,0 +1,209 @@
+
+*{
+  font-family: sans-serif
+}
+
+
+body
+{
+  margin: 0px; 
+  
+}
+
+th
+{
+ text-align: left; 
+}
+
+
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.printOnly
+{
+ display:none; 
+}
+
+.dataTable
+{
+ min-width: 600px; 
+}
+
+.dataTable th
+{
+ text-align: center; 
+}
+
+#tabs
+{
+ position: relative; 
+}
+
+#actions
+{
+ position: absolute;
+ top:5px;
+ right:5px;
+}
+
+#actions .refresh
+{
+ background-image: url(../img/refresh.png);
+background-position: center;
+background-size: 75%;
+background-repeat: no-repeat;
+}
+.ui-widget 
+{
+  
+  font-family: sans-serif; 
+  font-size: 12px; 
+}
+
+table
+{
+  font-size: 12px; 
+}
+
+.column
+{
+  display: table-cell;
+  vertical-align: top;
+  
+}
+
+.clear
+{
+  clear: both; 
+}
+
+.ui-tabs .ui-tabs-panel
+{
+ padding: 0em 0em; 
+}
+
+#status
+{
+  font-size: 0.9em;
+ float: right; 
+ color: #666;
+}
+
+#order
+{
+ 
+  display: none;
+  margin-left: 8px;
+  min-width: 328px; 
+}
+
+#order .ui-widget-content
+{
+  padding: 8px; 
+   overflow: auto;
+}
+
+#order th
+{
+  text-align: left; 
+}
+
+#order .ui-widget-header 
+{
+  padding: 4px 4px 4px 4px;
+}
+
+#order table
+{
+  width: 100%; 
+}
+#order .articleTable
+{
+ margin-top: 20px; 
+}
+#order .buttons
+{
+  float: right;
+}
+
+#orderTable
+{
+ width: 873px; 
+}
+
+
+table.dataTable tr.odd
+{
+ background-color: #F7F7F7;
+}
+
+table.dataTable tr.even td.sorting_1
+{
+  background-color: #F7F7F7;
+}
+
+table.dataTable tr.odd td.sorting_1
+{
+  background-color: #E9E9E9;
+}
+
+#articleTable tr td input
+{
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing: border-box;
+}
+#articleTable tr
+{
+  height: 32px; 
+}
+
+#articleTable thead th {
+  padding: 3px 10px 3px 0px;
+}
+
+#articleTable tr.borrowed td
+{
+  background-color: #FFD789 !important;
+}
+
+#articleTable tr.orderSelected td, #orderTable tr.orderSelected td
+{
+  background-color: #B4DBF3 !important;
+}
+
+
+#articleTable td.options
+{
+  width: 105px; 
+  text-align: center;
+}
+
+#articleTable .options .addToOrderButton
+{
+  display: none; 
+}
+
+body.editingOrder #articleTable .options .addToOrderButton
+{
+  display: block; 
+}
+
+body.editingOrder #articleTable .options .newOrderButton
+{
+  display: none; 
+}
+
+body.editingOrder #articleTable .options .showOrderButton
+{
+  display: none; 
+}
+

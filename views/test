@@ -1,0 +1,19 @@
+   p ID:
+            span(class="orderID")
+          a(class="closeButton") close
+          table
+            tr 
+              th Zeit:
+              td(class="itime")
+            tr
+              th Einheit:
+              td(class="borrower")
+            tr 
+              th Lieferant:
+              td(class="lender");
+           table(class="articleTable")
+            tr
+              th ID
+              th Name
+              th Geheim-Nr
+              th SAP

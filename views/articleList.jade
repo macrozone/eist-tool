@@ -1,0 +1,17 @@
+!!!5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/printArticles.css')
+    
+  body
+    table
+      tr
+        each header in headers
+          th #{header}
+      each article,key in articles
+        tr
+          each column,key in article
+            - if(key!="parse" && key!="_typeCast")
+              td= column
+      
